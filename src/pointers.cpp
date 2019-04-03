@@ -2,13 +2,12 @@
 
 using namespace std;
 
-void myswap(int *ptr1, int *ptr2)
+void myswap(int *&ptr1, int *&ptr2)//Pass by reference
 {
   auto temp = ptr1;
   ptr1 = ptr2;
   ptr2 = temp;
 }
-
 
 int main()
 {
@@ -16,15 +15,14 @@ int main()
 
   int *aptr = &a, *bptr = &b;
 
-  cout<<"What am I doing wrong ☹ \n\n";
-
-  cout<<"a = "<<a<<", b = "<<b<<endl;
+  //cout<<"What am I doing wrong ☹ \n\n";
+  cout<<"Before swapping"<<endl;
+  cout<<"a = "<<*aptr<<", b = "<<*bptr<<endl;
 
   //swap(a,b); //why does theirs work????   
  
-  myswap(aptr,bptr); // but mine doesn't ?!?!?!?!!!???
+  myswap(aptr,bptr); //myswap works now!!
 
-  cout<<"a = "<<a<<", b = "<<b<<endl;
-
-
+  cout<<"After swapping"<<endl;
+  cout<<"a = "<<*aptr<<", b = "<<*bptr<<endl;
 }
